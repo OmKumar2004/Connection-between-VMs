@@ -12,14 +12,14 @@ This project demonstrates inter-VM communication, microservice architecture, and
 - Host Operating System: Windows
 - Virtualization Platform: VMware Workstation
 - Guest Operating Systems: Kali Linux (2 Virtual Machines)
-- Network Type: Host-only Network (VMnet1)
+- Network Type: VMware NAT
 - Communication Protocol: HTTP (REST APIs)
 
 ---
 
 ## Architecture Design
 
-The system consists of two independent virtual machines connected to common IITJ network.
+The system consists of two independent virtual machines connected through a private virtual network managed by VMware using NAT.
 
 - **Backend VM**
   - Hosts a Node.js backend microservice
@@ -44,10 +44,10 @@ Two Kali Linux virtual machines were created using VMware Workstation.
 | kali_2 | Frontend Service | Kali Linux | 4000 |
 
 ### Network Configuration
-- Network Adapter Type: Host-only
-- VMware Network: VMnet1
-- Both VMs were assigned IP addresses within the same subnet
-- Connectivity verified using `ping`
+- Network Adapter Type: NAT
+- VMware Network: NAT (VMnet8)
+- Both VMs were assigned private IP addresses within the same NAT subnet by VMware.
+- Connectivity between the VMs was verified using the ping command.
 
 ---
 
